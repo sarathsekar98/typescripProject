@@ -1,6 +1,11 @@
 {
   "name": "backoffice",
   "version": "0.1.0",
+  "author": {
+    "email": "sarathsekar98@gmail.com",
+    "contactNo": "7418397071"
+  },
+  "keywords": ["ecommerce","shop"],
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -14,7 +19,13 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "axios": "~1.4.0",
+    "react-helmet": "~6.1.0",
+    "react-router-dom": "~6.0.0",
+    "react-logger": "~1.1.0",
+    "react-bootstrap": "~2.8.0",
+    "bootstrap": "^4.6.2"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {ThemeProvider} from "react-bootstrap";
+import Router from "./Router";
+import {createContext, useReducer} from "react";
+import {deleteUser, intialuser, updateUser, userReducer} from "./Store/Reducer";
+type userContext = {
+    users:any
+    updateUser:any
+    deleteUser:any
+    dispatch:any
+}
+export const userContext = createContext<userContext>({} as userContext);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [users, dispatch] = useReducer(userReducer, intialuser);
+
+    return (
+        <div>
+            <ThemeProvider breakpoints={["sm", "md", "xl"]} minBreakpoint={"xl"}>
+                <userContext.Provider value={{users:users,updateUser,deleteUser,dispatch}}>
+                    <Router/>
+                </userContext.Provider>
+            </ThemeProvider>
+        </div>
+    );
 }
 
 export default App;
